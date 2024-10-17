@@ -49,32 +49,126 @@ function split(str, separator = ' ') {
 // Grunnföll sem skilgreina á
 
 function longest(str) {
-  // Útfæra
+  if (isString(str)) {
+    if (str === "")
+      return "";
+    const allt = str.split(" ");
+    let lengsta ="";
+    for(let orð of allt) {
+      if(orð.length > lengsta.length) {
+        lengsta = orð;
+      }
+    }
+    return lengsta;
+   } else {
+  return null;
 }
+}
+console.assert(isString('halló heimur!') === true, 'longest: string, "heimur!" ');
+console.assert(isString("") === true, 'longest: ekki string, " "');
+console.assert(isString(1) === false, 'longest: ekki string, "null"');
+console.assert(isString("baka kaka") === true, 'longest: string, "baka"');
+
 
 function shortest(str) {
-  // Útfæra
-}
+  if(isString(str)) {
+    if (str === "")
+      return "";
+    const allt = str.split(" ");
+    let stutt = allt[0];
+    for(let orð of allt) {
+      if(orð.length < stutt.length) {
+        stutt = orð;
+      }
+    }
+    return stutt;
+    } else {
+      return null;
+    }
+  }
+console.assert(isString('halló heimur!') === true, 'shortest: string, "halló" ');
+console.assert(isString("") === true, 'shortest: ekki string, " "');
+console.assert(isString(1) === false, 'shortest: ekki string, "null"');
+console.assert(isString("baka kaka") === true, 'shortest: string, "baka"');
+
 
 function reverse(str) {
-  // Útfæra
+    if (isString(str)) {
+      const split = str.split("");
+      const reversed = split.reverse();
+      return reversed.join("");
+    }
+    return null;
 }
+console.assert(
+  reverse("halló") === "óllah",
+  "reverse: snýr við einföldum streng"
+);
+
+console.assert (
+  reverse(false) === null,
+  "reverse: ef ekki strengur, skila null"
+);
 
 function palindrome(str) {
-  // Útfæra
+  if (isString(str) && str !== "") {
+    const reversed = reverse(str)
+    return str.toLowerCase() === reversed.toLowerCase()
+  }  
+    return false;
 }
+console.assert(palindrome("halló") === false, "palindrome: strengur, false")
+console.assert(palindrome("hah") === true, "palindrome: strengur, true")
+console.assert(palindrome("") === false, "palindrome: ekki strengur, false")
+
 
 function vowels(str) {
-  // Útfæra
-}
+  if (isString(str)) {
+    let fjoldi = 0;
+    for (let orð of str) {
+      if ("aAeEiIoOuUyYáÁéÉýÝúÚíÍóÓöÖæÆ".includes(orð)) {
+        fjoldi++;
+      }
+    }
+    return fjoldi;
+   }
+  return 0;
+  }
+console.assert(isString('halló heimur!'), 'vowels: "6"');
+console.assert(isString(""), 'vowels: "0"');
+
+
+
+
 
 function consonants(str) {
-  // Útfæra
+  if (isString(str)) {
+    let fjoldi = 0;
+    for (let orð of str) {
+      if ("bBdDðÐfFgGhHjJkKlLmMnNpPrRsStTvVxXþÞ".includes(orð)) {
+        fjoldi++;
+      }
+    }
+    return fjoldi;
+   }
+  return 0;
 }
+console.assert(isString('halló heimur!'), 'consonants: "5" ');
+console.assert(isString(""), 'consonants:  "0"');
+
 
 //------------------------------------------------------------------------------
 // Leiðbeint ferli
 
 function start() {
-  // Útfæra
+  let byrja = true;
+
+  while (byrja) {
+    let input = prompt ("Endilega skrifaðu eitthvað!")
+    if (inputString === null || inputString.toLowerCase() === 'cancel') {
+      continueInput = false;
+      alert("Exiting the program. Goodbye!");
+      break;
+    }
+  }
 }

@@ -1,0 +1,3 @@
+[submodule "libs/my-submodule"]
+	path = libs/my-submodule
+	url = https://github.com/emiltveir/verkefni7.git

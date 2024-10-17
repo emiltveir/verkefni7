@@ -161,14 +161,5 @@ console.assert(isString(""), 'consonants:  "0"');
 // Leiðbeint ferli
 
 function start() {
-  let byrja = true;
-
-  while (byrja) {
-    let input = prompt ("Endilega skrifaðu eitthvað!")
-    if (inputString === null || inputString.toLowerCase() === 'cancel') {
-      continueInput = false;
-      alert("Exiting the program. Goodbye!");
-      break;
-    }
-  }
+  
 }
